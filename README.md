@@ -35,8 +35,20 @@ Key-Points Zusammenfassung
 - although referred to as "static imports" the syntax is: import static ...
 - you can import API classes and/or custom classes
 
+### Source File Declaration Rules (OCA Objective 1.2)
+- a source code file can have only one public class
+- if the source file contains a public class, the filename must match the public class name
+- a file can have only one package statement, but it can have multiple imports
+- the package statement(if any) must be the first (noncomment) line in a source file
+- the import statements(if any) must come after the package statement(if any) and before the first class declaration
+- if there is no package statement, import stements must be the first (noncomment) statements in a soruce file
+- package and import statements apply to all classes in the file
+- a file can have more than one nonpublic class
+- file with no public classes have no naming restrictions
 
-TODO...
+
+
+TODO...71
 
 
 
