@@ -52,4 +52,7 @@ TODO...
 
 
 # A: Links
+https://mylearn.oracle.com/ou/exam/java-se-8-programmer-i-1z0-808/105037/110679/170387
+
+
 https://github.com/adam-p/markdown-here/wiki/markdown-cheatsheet
