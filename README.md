@@ -21,12 +21,30 @@ Key-Points Zusammenfassung
 - Explain: Java distributed computing
 
 ### Identifiers (OCA Objective 2.1)
-- Identifiers can begin with a letter, an underscore, or a currency character
+- Identifiers can begin with
+    - a letter:
+    ```regex
+        "\\p{L}" or only A-Z: "[a-zA-Z]"
+    ```
+    - an underscore
+    ```regex
+        "_"
+    ```
+    - a currency character € or $
+    ```regex
+       "\\p{Sc}"
+    ```
 - After the first character, indentifiers can also include digits
+    ```regex
+       "\\d"
+    ```
 
 ### Executable Java Files and main() (OCA Objective 1.3)
-- compile with javac, execute with java, both support of many cli options
-- only version of main signature: public static void main(String[] args)
+- compile with javac.exe, execute with java.exe, both programms support many cli options
+- only version of main signature:
+```java
+public static void main(String[] args)
+``` 
 - main() can be overloaded
 
 ### Imports (OCA Objective 1.4)
@@ -45,6 +63,25 @@ Key-Points Zusammenfassung
 - package and import statements apply to all classes in the file
 - a file can have more than one nonpublic class
 - file with no public classes have no naming restrictions
+
+### Class Access Modifiers (OCA Objective 6.4)
+- there a three access modifiers: public, protected, private
+- there are **four** access levels:
+    - public
+    - protected
+    - default
+    - private
+- classes can have only public or default access
+- a class with default access can be seen only within the same package
+- a class with public access can be seen by all classes from all packages
+- class visibility resolves around whether code in one class can
+    - create an instance of another class
+    - extend (or sublclass) another class
+    - access methods an variables of another class
+
+
+
+
 
 
 
