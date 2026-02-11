@@ -1,6 +1,6 @@
 ```java
-// Alle Angaben ohne Gewehr.  
-// Quelle: OCA Java SE 8 
+// Alle Angaben ohne Gewähr.  
+// OCA Java SE 8 
 ```
 
 # Lerngruppe-OCA
@@ -34,6 +34,9 @@ Key-Points Zusammenfassung
 - you can use an asterix to search through the contents of a single package
 - although referred to as "static imports" the syntax is: import static ...
 - you can import API classes and/or custom classes
+
+
+TODO...
 
 
 
