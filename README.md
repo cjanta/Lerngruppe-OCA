@@ -52,8 +52,16 @@ before your code even compiles.
 At the other end of the spectrum are dynamicly typed languages. Dynamicly languages can be less verbose[de=übermäßig detailliert], 
 faster to code initialy and are often preferred in enviroments where small teams and rapid prototyping are the norm.
 But strongly typed languages like Java come into their own in large software shops with many teams of programmers and the need for more
-- Explain: Java multithreading
-- Explain: Java distributed computing
+
+## Explain: Java multithreading
+Java provides built-in language features and API's that allow programs to use many operating-system processes at the same time.
+As system grow to handle more computationally intensive problems and larger data sets, the ability to use all of a computer's core processors becomes essential.
+Multithreaded programming is never simple, but Java provides a rich toolkit to make it as easy as possible
+
+## Explain: Java distributed computing
+Another way to tackle big programming problems is to distribute the workload across many machines. The Java API provides several ways to simplify tasks related
+to distributed computing. One such example is *serialization*, a process in which a Java object is converted to a portable form.
+Serialized Objects can be sent to other machines, deserialized, and then used as a normal Java Object.
 
 ### Identifiers (OCA Objective 2.1)
 - Identifiers can begin with
