@@ -114,7 +114,7 @@ public static void main(String[] args)
     - protected
     - default
     - private
-- classes can have only public or default access
+- classes can have only public or default access (inner-classes can have all 4 access levels)
 - a class with default access can be seen only within the same package
 - a class with public access can be seen by all classes from all packages
 - class visibility resolves around whether code in one class can
@@ -122,13 +122,135 @@ public static void main(String[] args)
     - extend (or sublclass) another class
     - access methods an variables of another class
 
+### Class Modifiers (Nonaccess) (OCA Objective 1.2, 7.1 and 7.5)
+- classes can also be modified with final, abstract or strictfp
+- a class cannot be both final and abstract
+- a final class cannot be subclassed
+- an abstract class cannot be instantiated
+- a single abstract method in a class means the whole class must be abstract
+- an abstract class can have both abstract and nonabstract methods
+- the first concrete class to extend an abstract class must implement all of its abstract methods
+  
+### Interface Implementation (OCA objective 7.5)
+- Usually, interfaces are contracts for what a class can do, but they say nothing about the way in which the class must do it.
+- Interfaces can be implemented by any class from any inheritance tree
+- Usually, an interface is like a 100 percent abstract class and is implicity abstract whether or not you type the abstract modifier in the declaration
+- Usually interfaces have only abstract methods
+- Interface methods are by default public and usually abstract - explicit declaration of these modifiers is optional
+- Interfaces can have constants, which are always implicitly public, static and final
+- Interface constant declarations of public, static and final are optional in any combinations
+- As of Java8, interfaces can have concrete methods declared as either default or static
+- A legal nonabstract implementing classs has the following properties:
+      - It provides concrete implementations for the interfaces methods
+      - It must follow all legal override rules for the methods it implements
+      - It must not declare any new checked exceptions for an implementation method
+      - It must not declare any checked exceptions that are broarder than the exceptions declared in the interface method
+      - It may declare runtime exceptions on any interface method implementation regardless of the interface declaration
+      - IT must maintain the exact signature (allowing for covariant returns) and return type of the methods it implements (but does not have to declare the            exceptions of the interface)
+  - A class implementing an interface can itself be abstract
+  - An abstract implementing class does not have to implement the interface methods (but the first concrete subcluss must)
+  - A class can extend only one class (no multiple inheritans), but it can implement many interfaces
+  - Interfaces can extend one or more othe interfaces
+  - Interfaces cannot extend a class ir implement a class or interface
+  - **Exam-Tip:Verify that interfaces and class declarations are legal before verifying other code logic**
+    
+### Member Access Modifiers (OCA Objective 6.4)
+- Methods and instance(nonlocal) variables are known as "members"
+- Members can use all four access levels: public, protected, default and private
+- Member access comes in two forms:
+      - Code in one class can access a member of another class
+      - A subclass can inherit a member of its superclass
+- If a class cannot be accessed, its members cannot be accessed
+- Determine class visibility before determining member visibility
+- public members can be accessed by all other classes, even in other packages
+- If a superclass member is public, the subclass inherits it - regardeless of package
+- Members accessed without the dot operator (.) must belong to the same class
+- this. always referes to the currently executing object
+- this.aMethod() is the same as just invoking aMethod()
+- private members can be accessed only by code in the same class
+- private members are not visible to subclasses, so private members cannot be inherited
+- Default and protected members differ only when subclasses are involved:
+      - Default members can be accessed only by classes in the same package
+      - Protected members can be accessed by other classes in the same package, plus subclasses, regardless of package
+      - protected = package + subclasses
+      - For subclasses outside the package, the protected member can be accessed only through inheritance,
+        a subclass outside the package cannot access a protected member by using a reference to a subclass instance
+       (In other words, inheritance is the only mechanism for a subclass outside the package to access a protected member of its superclass)
+### Local Variables (OCA Objectives 2.1 and 6.4)
+- Local (method, automatic or stack) variable declarations cannot have access modifiers
+- final is the only modifier available to local variables
+- Local variables don't get default values, so they must always be initialized before use
+
+### Other Modifiers-Members (OCA Objectives 7.1 and 7.5)
+- final methods cannot be overriden in a subclass
+- abstract methods are declared with a signature, a return type and an optional throws clause but they are not implemented
+- abstract methods end in a semicolon- no curly braces
+- Three ways to spot a nonabstract method:
+      - the method is not marked abstract
+      - the method has curly braces
+      - the method **might** have code between the curly braces
+- the first nonabstract (concrete) class to extend an abstract class must implement all of the abstract class's abstract methods
+- the synchronized modifier applies only to methods and code blocks
+- synchronized methods can have any access control and can also be marked final.
+- abstraced methods must be implemented by a subclass so they must be inheritable. For that reason:
+    - abstract methods cannot be private
+    - abstract methods cannot be final
+- the native modifier applies only to methods
+- the strictfp modifier applies only to classes and methods
+### Methods with var-args (OCA Objective 1.2)
+- Methods can declare a parameter that accepts from the zero to many arguments, a so-called var-arg methods
+- A var-arg parameter is declared with the syntax type... name; (example: doStuff(int... x))
+- a var-arg method can have only one var-arg parameter
+- in methods with normal parameters and a var-arg, the var-arg must come last
+### Contructors (OCA Objectives 1.2 and 6.3)
+- Contructors must have the same as the class
+- Contructors can have arguments but they cannot have a return type
+- Contructors can use any access modifiers(even private)
+### Variable Declarations (OCA Objective 2.1)
+- Instance variables can:
+      - have any access control
+      - be marked final or transient
+- Instance variables can't be abstract, synchronized, native or strictfp
+- It is legal to declare a local variable with same name as an instance variable this is called: "shadowing"
+- final variables have the following properties:
+    - final variables cannot be reassigned once assigned a value
+    - final reference varables cannot refer to a different object once the object has been assigned to the final variable
+    - final variables must be initialized before the contructor completes
+    - There is no such thing as a final object. An object reference marked final does NOT mean the object itself can't change
+    - the trasient modifier applies only to instance variables
+    - the volatile modifier applies only to instance variables
+### Array Declaration (OCA Objectives 4.1 and 4.2)
+- Arrays can hold primitives or objects but the array itself is always an object
+- When you declare an array, the brackets can be to the left or to he right of the variable name
+- it's never legal to include the size of an array in the declaration
+- an array of objects can hold any object that passes the IS-A(or instanceof) test for the declared type of array.(Example: If Horse extends Animal then a Horse object can go into an Animal array)
+### Static Variables and Methods (OCA Objective 6.2)
+- they are not tied to any particular instance of a class
+- no class instances are needed in order to use static members of the class or interface
+- there is only one copy of a static variable/class and all instances share it
+- static methods do not have direct access to nonstatic members
+### enums (OCA Objective 1.2)
+- an enum specifies a list of constant values assigned to a type
+- an enum is NOT a String or an int; an enum contant's type is the enum type. (Example: SUMMMER adn FALL are of the enum type Season)
+- an enum can be declared outside or inside a class but not in a method
+- an enum declared outside a class must NOT be marked static,final,abstract,protected or private
+- enums can contain contructors, methods, variables and constant-specific class bodies
+- enum constants can be send arguments to the enum contrucor using the syntax: BIG(8)
+- enum contructors can have arguments and can be overloaded
+- enum contructors can **never** be invoked directly in code. There always called automatically when an enum is initialized
+- the semicolon at the end of an enum declaration is optional. These are legal:
+      - enum Foo{ONE, TWO, THREE}
+      - enum Foo{ONE, TWO, THREE};
+- MYEnum.values() returns an array of MYEnum's values
+
+TODO: Kapitel:2
 
 
 
 
 
 
-TODO...71
+
 
 
 
