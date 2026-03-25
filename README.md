@@ -243,6 +243,43 @@ public static void main(String[] args)
       - enum Foo{ONE, TWO, THREE};
 - MYEnum.values() returns an array of MYEnum's values
 
+### Explanations, KeyWords
+
+#### transient
+Meaning: Marks a field tthat should not be serialized
+Usage: When an object is written to a stream (e.g. ObjectOutputStream), fields marked as transient are skipped
+Use it when: You want to exclude sensitive or temporary data from serialization.
+#### strictfp
+Meaning: Forces strict IEEE-754 floating-point behaviour, ensuring the same result on all platforms.
+Usage: Apply it to classes, interfaces or methods
+Use it when: You need consistent floating-point calculations across different CPUs/architectures
+#### synchronized
+Meaning: Ensures that only one thread at a time can execute a method or block
+```java       
+public synchronized void increment() {
+    count++;
+}
+```
+```java       
+synchronized (this) {
+    count++;
+}
+```
+Use it when: Multiple threads access and modify shared data — prevents race conditions.
+#### native
+Meaning: Declares a method whose implementation is not written in Java, but in a native language (like C/C++) via JNI
+Java only knows the method signature - the actual logic is defined in a nativ library
+Use it when: You need OS-level access, hardware interaction or to call legacy C/C++ code
+
+#### volatile
+Meaning: Ensures a variable is always read directly from main memory and not from threads local cache
+Whithout volatile, threads may see outdated values.
+Use it when: You have simple shared state flags updated by multiple threads(e.g. running, shutdown, ready) and don't need full synchronization
+
+
+
+
+
 TODO: Kapitel:2
 
 
