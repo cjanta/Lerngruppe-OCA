@@ -277,14 +277,26 @@ Whithout volatile, threads may see outdated values.
 Use it when: You have simple shared state flags updated by multiple threads(e.g. running, shutdown, ready) and don't need full synchronization
 
 
+## Chapter 2 Object Orientation
+
+### Encapsulation, IS-A, Has-A* (OCA Objective 6.5)
+- Encapsulation helps hide implementation behind an interface (or API)
+- Encapsulated code hast two features:
+      - Instance variables are kept protected (usually with the private modifier)
+      - Getter and Setter methods provide access to instance variables
+- IS-A refers to inheritance or implementation
+- IS-A is expressed with the keyword extends or implements
+- IS-A, "inherits from" and "is subtype of" are all equivalent expressions
+- HAS-A means an instance of one class "has a" reference to an instance of anothr class or another instance of the same class [HAS-A is not in exam but good to know]
+
+### Inheritance (OCA Objective 7.1)
+- Inheritance allows a type to be a subtype of a supertype and thereby inherit public and protected variables and methods of the supertype
+- Inheritance is a key concept that underlies IS-A, polymorphism, overriding, overloading and casting
+- All classes (except class Object) are subclass of type Object and therefor they inherit Object's methods.
 
 
 
-TODO: Kapitel:2
-
-
-
-
+TODO: Polymorphism p:157
 
 
 
