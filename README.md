@@ -294,9 +294,40 @@ Use it when: You have simple shared state flags updated by multiple threads(e.g.
 - Inheritance is a key concept that underlies IS-A, polymorphism, overriding, overloading and casting
 - All classes (except class Object) are subclass of type Object and therefor they inherit Object's methods.
 
+### Polymorphism (OCA Objective 7.2)
+- Polymorphism means "many forms"
+- A reference variable is always of a single, unchangeable type, but it can refer to a subtype
+- A single object can be referred to by reference variables of many different types-as long as they are the same type or a supertype of the object
+- The reference variable's type(not the object#s type) determines which methods can be called!
+- Polymorphic method invocations apply only to overriden instance methods
+
+### Overriding and Overloading (OCA Objectives 6.1 and 7.2)
+- Methods can be overridden or overloaded; constructors can be overloaded but not overridden
+- With respect to the method it overrides, the overriding method
+  - Must have the same argument list
+  - Must have the same return type or a subclass(known as a covariant return)
+  - Must not have a more restrictive access modifier
+  - May have a less restrictive access modifier
+  - Must not throw new or broader checked exceptions
+  - May throw fewer or narrower checked exceptions, or any unchecked exception
+- final methods cannot be overridden
+- Only inherited methods may be overridden, and remember that privat methods are not inherited
+- A subclass uses super.overriddenMethodName() to call the superclass version of an overridden method
+- A subclass uses MyInterface.super.overriddenMethodName() to call the super interface version on an overridden method
+- Overloading means reusing a method name but with different arguments
+- Overloading methods:
+  - Must have different arguments lists
+  - May have different return types, if arguments lists are also different
+  - May have different access modifiers
+  - May throw different exceptions
+- Methods from a supertype can be overloaded in a subtype
+- Polymorphism applies to overriding, not to overloading
+- Object type (not the reference variable's type) determines which overridden method is used at runtime
+- Reference type determines which overloaded method will be uses at compile time
+
+TODO: Iterator.next(Seite: 159)
 
 
-TODO: Polymorphism p:157
 
 
 
